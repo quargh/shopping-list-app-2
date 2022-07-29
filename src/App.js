@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
-const App = () => {
+export default function App() {
   const [item, setItem] = useState("");
-  const [list, setList] = useState([]);
-  item = [
+  const [list, setList] = useState([
     {
       _id: "c2hvcHBpbmcuaXRlbTox",
       _type: "shopping.item",
@@ -59,21 +58,20 @@ const App = () => {
       category: { _type: "ref", _ref: "c2hvcHBpbmcuY2F0ZWdvcnk6MA==" },
       name: { en: "Bananas", de: "Bananen" },
     },
-  ];
+  ]);
 
-  const handleSubmit = () => {};
   const handleChange = () => {};
 
-  function App() {
-    return (
-      <div className="App">
-        <h1> Shopping List App</h1>
-        <form onSubmit={handleSubmit}>
-          <input type="text" value={item} onChange={handleChange} />
-          <button type="submit">ADD</button>
-        </form>
-      </div>
-    );
-  }
-};
-export default App;
+  return (
+    <div className="App">
+      <p></p>
+      <h1>Shopping List App</h1>
+
+      <input type="text" value={item} onChange={handleChange} />
+
+      {list.map((listItem) => (
+        <li>{listItem.name.de}</li>
+      ))}
+    </div>
+  );
+}
