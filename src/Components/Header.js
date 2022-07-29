@@ -8,7 +8,6 @@ export default function Header(props) {
           <h1>Shopping List App</h1>
         </a>
       </div>
-      ;
     </header>
   );
 }

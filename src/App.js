@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import Header from "./Components/Header";
+import Main from "./Components/Main";
 
 export default function App() {
   const [item, setItem] = useState("");
@@ -64,14 +66,15 @@ export default function App() {
 
   return (
     <div className="App">
-      <p></p>
-      <h1>Shopping List App</h1>
+      <Header></Header>
+      <div className="row">
+        <Main></Main>
 
-      <input type="text" value={item} onChange={handleChange} />
-
-      {list.map((listItem) => (
-        <li>{listItem.name.de}</li>
-      ))}
+        <input type="text" value={item} onChange={handleChange} />
+        {list.map((listItem) => (
+          <li>{listItem.name.de}</li>
+        ))}
+      </div>
     </div>
   );
 }

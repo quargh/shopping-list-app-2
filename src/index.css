@@ -9,10 +9,18 @@ body {
 h1 {
   color: whitesmoke;
   font-size: 1, 5rem;
-  background-color: orange;
+  background-color: rgb(27, 228, 23);
   padding: 1rem;
   margin: 0.5rem;
   border-radius: 0.5rem;
+}
+
+h2 {
+  background-color: blueviolet;
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 00.5rem;
+  color: beige;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
