@@ -64,10 +64,8 @@ export default function App() {
 
   return (
     <div className="App">
-      <Header></Header>
+      <p>What do you wan´t to buy?</p>
       <div className="row">
-        <Main></Main>
-
         <input type="text" value={item} onChange={handleChange} />
         {list.map((listItem) => (
           <li>{listItem.name.de}</li>

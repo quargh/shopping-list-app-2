@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+const url = "https://fetch-me.vercel.app/api/shopping/categories";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
