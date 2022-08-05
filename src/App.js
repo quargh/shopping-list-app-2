@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import SearchInput from "./Components/SearchInput";
 //Hallo Meral Test
 
 export default function App() {
+  const url = "https://fetch-me.vercel.app/api/shopping/items";
   const [item, setItem] = useState("");
   const [list, setList] = useState([
     {
@@ -66,12 +68,7 @@ export default function App() {
   return (
     <div className="App">
       <p>What do you wan´t to buy?</p>
-      <div className="row">
-        <input type="text" value={item} onChange={handleChange} />
-        {list.map((listItem) => (
-          <li>{listItem.name.de}</li>
-        ))}
-      </div>
+      <SearchInput />
     </div>
   );
 }
