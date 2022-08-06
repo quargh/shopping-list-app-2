@@ -1,3 +1,4 @@
+
 export default function AlleLebensmittel({lebensmittel}){
 
       return (
@@ -19,3 +20,4 @@ export default function AlleLebensmittel({lebensmittel}){
       );
 
 }
+

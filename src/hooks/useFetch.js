@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
 export function useFetch(url) {
-      const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
+
 
       useEffect(() => {
             async function fetchData() {
@@ -18,3 +19,4 @@ export function useFetch(url) {
       //Parm Richtig Parent Component
       return [data];
 }
+

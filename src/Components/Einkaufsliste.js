@@ -1,3 +1,4 @@
+
 export default function Einkaufsliste(){
 
 
@@ -5,3 +6,5 @@ export default function Einkaufsliste(){
 
 
 }
+
+
