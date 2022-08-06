@@ -6,17 +6,17 @@ import SearchInput from "./Components/SearchInput";
 export default function App() {
   const url = "https://fetch-me.vercel.app/api/shopping/items";
 
-  // Mit useEffectin Kombination [] haben wir die Möglichkeit etwas 1x(Zeile 11 fetchdata) durchzuführen .
+  // Mit useEffect in Kombination [] haben wir die Möglichkeit etwas 1x(Zeile 11 fetchdata) durchzuführen .
   useEffect(() => {
+    async function fetchdata(url) {
+      // Daten holen von url
+      const response = await fetch(url);
+      // Hier werden die url daten in json parsen (umwandeln/konvertiert).
+      const data = response.json();
+      console.log("data" + data);
+    }
     fetchdata(url);
   }, []);
-  // Hier definieren wir was passieren soll.Definieren der Funktion
-  async function fetchdata(url) {
-    // Daten holen von url
-    const response = await fetch(url);
-    // Hier werden die url daten in json parsen (umwandeln/konvertiert).
-    const data = response.json();
-  }
 
   const [item, setItem] = useState("");
   const [list, setList] = useState([]);
