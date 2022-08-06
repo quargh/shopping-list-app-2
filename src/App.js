@@ -26,6 +26,9 @@ export default function App() {
     <div className="App">
       <p>What do you wan´t to buy?</p>
       <SearchInput />
+      {items.map((item) => (
+        <div key={item._id}>{item.name.de}</div>
+      ))}
     </div>
   );
 }
