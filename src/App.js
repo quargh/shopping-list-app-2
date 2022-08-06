@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import SearchInput from "./Components/SearchInput";
-import {useFetch} from "./hooks/useFetch";
+import { useFetch } from "./hooks/useFetch";
 //Hallo Meral Test
 
 export default function App() {
-  const url = "https://fetch-me.vercel.app/api/shopping/items";
-
   // [Array, Funktion um Array zu ändern] = (Initialzustand)
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
+  const url = "https://fetch-me.vercel.app/api/shopping/items";
 
   const [data] = useFetch(url);
   // Mit useEffect in Kombination [] haben wir die Möglichkeit etwas 1x(Zeile 11 fetchdata) durchzuführen .
-
 
   useEffect(() => {
     setItems(data);
