@@ -8,7 +8,7 @@ export function useFetch(url) {
                   const response = await fetch(url);
                   const newData = await response.json();
                   if (response.status === 200) {
-                        setData(newData.results);
+                        setData(newData.data);
                   } else {
                         console.error("Opps, something went wrong!");
                   }
