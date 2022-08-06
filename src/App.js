@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import SearchInput from "./Components/SearchInput";
+import {useFetch} from "./hooks/useFetch";
 //Hallo Meral Test
 
 export default function App() {
   const url = "https://fetch-me.vercel.app/api/shopping/items";
 
-  // Mit useEffect in Kombination [] haben wir die Möglichkeit etwas 1x(Zeile 11 fetchdata) durchzuführen .
-  useEffect(() => {
-    async function fetchdata(url) {
-      // Daten holen von url
-      const response = await fetch(url);
-      // Hier werden die url daten in json parsen (umwandeln/konvertiert).
-      const data = response.json();
-      console.log("data" + data);
-    }
-    fetchdata(url);
-  }, []);
+  // [Array, Funktion um Array zu ändern] = (Initialzustand)
+  const [items, setItems] = useState([])
 
-  const [item, setItem] = useState("");
-  const [list, setList] = useState([]);
+  const [data] = useFetch(url);
+  // Mit useEffect in Kombination [] haben wir die Möglichkeit etwas 1x(Zeile 11 fetchdata) durchzuführen .
+
+
+  useEffect(() => {
+    setItems(data);
+    console.log(items);
+  }, [data]);
+
+  //const [item, setItem] = useState("");
+  //const [list, setList] = useState([]);
 
   const handleChange = () => {};
 
