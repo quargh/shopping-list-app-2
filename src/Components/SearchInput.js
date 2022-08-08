@@ -5,7 +5,6 @@ export default function SearchInput() {
       <form
         aria-labelledby="form-heading"
         aria-describedby="form-description"
-        data-js="form"
       >
         <fieldset>
           <input id="name" type="text" name="name" />

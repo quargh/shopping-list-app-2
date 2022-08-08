@@ -1,4 +1,4 @@
-
+// AlleLebensmittel erwartet eine Liste 'lebensmittel', die sie anzeigen soll
 export default function AlleLebensmittel({lebensmittel}){
 
       return (

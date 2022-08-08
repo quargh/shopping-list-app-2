@@ -4,10 +4,15 @@ import SearchInput from "./Components/SearchInput";
 import {useFetch} from "./hooks/useFetch";
 import AlleLebensmittel from "./Components/AlleLebensmittel";
 import Einkaufsliste from "./Components/Einkaufsliste";
+
+import {WenigLebensmittel} from "./Components/WenigLebensmittel";
 //Hallo Meral Test
 
 export default function App() {
       const url = "https://fetch-me.vercel.app/api/shopping/items";
+
+
+      const [someLebensmittel, setSomeLebensmittel] = useState([...WenigLebensmittel]);
 
       // [Array, Funktion um Array zu ändern] = (Initialzustand)
       const [items, setItems] = useState([]);
@@ -15,7 +20,6 @@ export default function App() {
 
       const [data] = useFetch(url);
       // Mit useEffect in Kombination [] haben wir die Möglichkeit etwas 1x(Zeile 11 fetchdata) durchzuführen .
-
 
       useEffect(() => {
             setItems(data);
@@ -33,6 +37,7 @@ export default function App() {
       return (
           <div className="App">
                 <p>What do you wan´t to buy?</p>
+                <AlleLebensmittel lebensmittel={someLebensmittel}/>
                 <Einkaufsliste/>
                 <SearchInput/>
                 <AlleLebensmittel lebensmittel={items}/>
