@@ -6,11 +6,16 @@ import AlleLebensmittel from "./Components/AlleLebensmittel";
 import Einkaufsliste from "./Components/Einkaufsliste";
 
 import {WenigLebensmittel} from "./Components/WenigLebensmittel";
+import {search} from "fast-fuzzy";
 //Hallo Meral Test
 
 export default function App() {
       const url = "https://fetch-me.vercel.app/api/shopping/items";
 
+
+      const [searchInputText, setSearchInputText] = useState("");
+      const [searchedItems, setSearchedItems] = useState([]);
+      const [searchResults, setSearchResults] = useState([]);
 
       const [someLebensmittel, setSomeLebensmittel] = useState([...WenigLebensmittel]);
 
@@ -31,16 +36,38 @@ export default function App() {
       //const [item, setItem] = useState("");
       //const [list, setList] = useState([]);
 
-      const handleChange = () => {
-      };
+      function handleSearchEvent(inputText) {
+            setSearchInputText(inputText)
+      }
+
+      useEffect(() => {
+      // Funktion ist unten definiert
+            runFuzzySearch(searchInputText);
+      }, [searchInputText])
+
+      function runFuzzySearch(searchString){
+
+            // Mit Fuzzy Results gemäß unseres Search Strings filtern
+            const fuzzyResults = search(searchString, items, {keySelector: (obj) => obj.name.de});
+            //searchResults mit fuzzyResults aktualisieren
+            setSearchResults(fuzzyResults);
+
+            // Unseren Array 'someLebensmittel' aka Einkaufsliste updaten:
+            //setSomeLebensmittel(searchResults);
+
+      }
+
+      useEffect(() => {
+            setSearchedItems(searchResults);
+      }, [searchResults]);
 
       return (
           <div className="App">
                 <p>What do you wan´t to buy?</p>
                 <AlleLebensmittel lebensmittel={someLebensmittel}/>
                 <Einkaufsliste/>
-                <SearchInput/>
-                <AlleLebensmittel lebensmittel={items}/>
+                <SearchInput onHandleSearchEvent={handleSearchEvent}/>
+                <AlleLebensmittel lebensmittel={searchedItems}/>
 
           </div>
       );

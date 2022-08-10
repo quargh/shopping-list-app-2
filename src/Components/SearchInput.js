@@ -1,4 +1,4 @@
-export default function SearchInput() {
+export default function SearchInput({onHandleSearchEvent}) {
   return (
     //darf nur ein element enthalten
     <div>
@@ -7,7 +7,13 @@ export default function SearchInput() {
         aria-describedby="form-description"
       >
         <fieldset>
-          <input id="name" type="text" name="name" />
+              <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  onChange={(event) => {
+                        onHandleSearchEvent(event.target.value)
+                  }}/>
         </fieldset>
       </form>
     </div>
